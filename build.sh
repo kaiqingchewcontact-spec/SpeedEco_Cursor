@@ -8,6 +8,10 @@ echo "==> Installing Flutter SDK ${FLUTTER_VERSION}..."
 curl -sL "$FLUTTER_URL" | tar xJ -C /tmp
 export PATH="/tmp/flutter/bin:$PATH"
 
+echo "==> Fixing git ownership..."
+git config --global --add safe.directory /tmp/flutter
+git config --global --add safe.directory "$(pwd)"
+
 echo "==> Flutter version:"
 flutter --version
 
